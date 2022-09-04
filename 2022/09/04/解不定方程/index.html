@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"remove","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="传送门：http:&#x2F;&#x2F;acm.hdu.edu.cn&#x2F;showproblem.php?pid&#x3D;1356 由题意，就是要解一个不定方程ax+by&#x3D;d，要求（abs(x)+abs(y)）最小。 一.exgcd先从exgcd说起。由裴蜀定理可知，ax+by&#x3D;gcd(a,b)必定存在整数解(x,y)。那么有： ax+by&#x3D;gcd(a,b)&#x3D;gcd(b,a%b)&#x3D;bx&#39;+(a%b)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解不定方程">
+<meta property="og:url" content="http://example.com/2022/09/04/%E8%A7%A3%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Sanshuiii">
+<meta property="og:description" content="传送门：http:&#x2F;&#x2F;acm.hdu.edu.cn&#x2F;showproblem.php?pid&#x3D;1356 由题意，就是要解一个不定方程ax+by&#x3D;d，要求（abs(x)+abs(y)）最小。 一.exgcd先从exgcd说起。由裴蜀定理可知，ax+by&#x3D;gcd(a,b)必定存在整数解(x,y)。那么有： ax+by&#x3D;gcd(a,b)&#x3D;gcd(b,a%b)&#x3D;bx&#39;+(a%b)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-04T11:57:10.000Z">
+<meta property="article:modified_time" content="2022-09-04T12:08:10.545Z">
+<meta property="article:author" content="Yifan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/09/04/%E8%A7%A3%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>解不定方程 | Sanshuiii</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Sanshuiii</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/04/%E8%A7%A3%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Yifan">
+      <meta itemprop="description" content="It was the best of times, it was the worst of times.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sanshuiii">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解不定方程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-09-04 15:57:10 / Modified: 16:08:10" itemprop="dateCreated datePublished" datetime="2022-09-04T15:57:10+04:00">2022-09-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>传送门：<a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1356">http://acm.hdu.edu.cn/showproblem.php?pid=1356</a></p>
+<p>由题意，就是要解一个不定方程ax+by&#x3D;d，要求（abs(x)+abs(y)）最小。</p>
+<h2 id="一-exgcd"><a href="#一-exgcd" class="headerlink" title="一.exgcd"></a>一.exgcd</h2><p>先从exgcd说起。由裴蜀定理可知，ax+by&#x3D;gcd(a,b)必定存在整数解(x,y)。那么有：</p>
+<pre><code>ax+by=gcd(a,b)=gcd(b,a%b)=bx&#39;+(a%b)y&#39;				（1.1）
+</code></pre>
+<p>其中等号1，3用到了裴蜀定理，等号2用到了gcd的性质。</p>
+<p>由a%b&#x3D;a-a&#x2F;b(本文中所有的除法都是整数除法)那么我们把等式最右边变形，可以得到：</p>
+<pre><code>ax+by=bx&#39;+ay&#39;-(a/b)y&#39;=ay&#39;+b(x&#39;-(a/b)*y&#39;)			（1.2）
+</code></pre>
+<p>于是得到一组解：</p>
+<pre><code>x=y&#39;								（1.3）
+y=x&#39;-(a/b)*y&#39;							（1.4）
+</code></pre>
+<p>所以可以用递归的方式求解。</p>
+<p>最后考虑一下边界条件，当b&#x3D;&#x3D;0时，从线性同余方程的角度看x&#x3D;1，y&#x3D;0显然是一组可行解。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!b)&#123;</span><br><span class="line">		x=<span class="number">1</span>;</span><br><span class="line">		y=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> a;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> d=<span class="built_in">exgcd</span>(a,b,x,y);</span><br><span class="line">	<span class="built_in">swap</span>(x,y);<span class="comment">//此时x=y&#x27;,y=x&#x27;</span></span><br><span class="line">	y-=a/b*x;<span class="comment">//考虑x，y的实际情况，也就是 y=x&#x27;-(a/b)*y&#x27;</span></span><br><span class="line">	<span class="keyword">return</span> d;<span class="comment">//顺便吧gcd也求出来</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-求通解"><a href="#二-求通解" class="headerlink" title="二.求通解"></a>二.求通解</h2><p>再考虑这道题，等号右边并不是gcd，而是一个d，因为题目告诉你一定有解，所以gcd一定是d的因子，我们把x和y都乘上一个rate&#x3D;(d&#x2F;gcd(a,b)),得到一组初始的</p>
+<pre><code>x0=x*rate				（2.1）
+y0=y*rate				（2.2）
+</code></pre>
+<p>接下来就要去找对x0和y0加加减减，来求这个MIN(abs(x0+dx)+abs(y0-dy))。</p>
+<p>我们先考虑</p>
+<p>再考虑dx和dy的关系：</p>
+<pre><code>a*x0+b*y0=d					（2.3）
+</code></pre>
+<p>对方程变形得到：</p>
+<pre><code>a*(x0+dx)+b*(y0-dy)=d				（2.4）
+</code></pre>
+<p>把里面的式子提出来得到：</p>
+<pre><code>a*dx-b*dy=0					（2.5）
+</code></pre>
+<p>那么就是:</p>
+<pre><code>dx/dy=b/a					（2.6）
+</code></pre>
+<p>考虑gcd(a,b)，可以得到：</p>
+<pre><code>dx/dy=(b/gcd)/(a/gcd)				（2.7）
+</code></pre>
+<p>此时(b&#x2F;gcd)与(a&#x2F;gcd)是互质的所以可以取到的最小的dx和dy就是：</p>
+<pre><code>dx=(b/gcd)					（2.8）
+dy=(a/gcd)					（2.9）
+</code></pre>
+<p>那么方程的通解一定满足如下条件：</p>
+<pre><code>ansx=x0+k*dx					（2.10）
+ansy=y0-k*dy					（2.11）
+</code></pre>
+<h2 id="三-问题转化"><a href="#三-问题转化" class="headerlink" title="三.问题转化"></a>三.问题转化</h2><p>知道了通解，那么哪一组解才是最优的呢？</p>
+<p>因为dx！&#x3D;dy，不妨设dx&gt;dy，我们假设此时x满足</p>
+<pre><code>|x|&gt;&gt;|dx|(&gt;&gt;表示远大于)
+</code></pre>
+<p>那么我们让</p>
+<pre><code>x+=t*dx					（3.1）
+y-=t*dy					（3.2）
+</code></pre>
+<p>在x和y均不变号的情况下，答案会变小t*(dx-dy)，是一组更优的解。所以最优解一定满足:</p>
+<pre><code>|x|&lt;|dx|				（3.3）
+</code></pre>
+<p>那么问题就可以转化为变成了求方程关于x的最小正整数解。</p>
+<p>但是问题在于，根据式(3.3)，去掉绝对值后，x可能是负的。但是问题在于，我们要求的方程</p>
+<pre><code>a*x+b*y=d				(3.4)
+</code></pre>
+<p>可以变形为</p>
+<pre><code>y=(d-a*x)/b				(3.5)
+</code></pre>
+<p>我们上面已经证明，通过上述方程构造出来的x，上面方程中的y一定是有解的，那么对于一个确定的x，我们总希望y最小，因为dx&gt;dy，那么如果x取到负数，那么一定会大大增加y的值，所以很有可能会更糟。所以我们只要考虑x取最小正整数的情况就可以了。（我直言了，我不会证明，但是我的直觉告诉我这样做很对，oj也告诉我这样做很对）。</p>
+<p>反之，如果dy&gt;dx，那么考虑y的最小正整数解即可。</p>
+<h2 id="四-求最小正整数解"><a href="#四-求最小正整数解" class="headerlink" title="四.求最小正整数解"></a>四.求最小正整数解</h2><p>那这就非常容易了（说白了就是取模）：</p>
+<pre><code>ansx=（ansx%dx+dx）%dx
+</code></pre>
+<p>然后用式（3.5）：</p>
+<pre><code>ansy=(d-a*ansx)/b
+</code></pre>
+<p>就完事了。</p>
+<h2 id="五-贴代码"><a href="#五-贴代码" class="headerlink" title="五.贴代码"></a>五.贴代码</h2><p>看清题意，多写两个if就完事了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ABS(x) (((x)&gt;0)?(x):-(x))</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x,y,x1,x2,y1,y2,dx,dy;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!b)&#123;x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;</span><br><span class="line">	<span class="type">int</span> d=<span class="built_in">exgcd</span>(b,a%b,x,y);</span><br><span class="line">	<span class="type">int</span> t=x;x=y,y=t-(a/b)*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">(<span class="type">int</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	x=<span class="number">0</span>;<span class="type">int</span> f=<span class="number">1</span>;<span class="type">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>)f=<span class="number">-1</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;x=x*<span class="number">10</span>+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">	x*=f;<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b,d;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">read</span>(a),<span class="built_in">read</span>(b),<span class="built_in">read</span>(d);</span><br><span class="line">		<span class="keyword">if</span>(!a&amp;&amp;!b&amp;&amp;!d)<span class="keyword">break</span>;</span><br><span class="line">		<span class="type">int</span> gcd=<span class="built_in">exgcd</span>(a,b,x,y);</span><br><span class="line">		<span class="type">int</span> rate=d/gcd;</span><br><span class="line">		dx=b/gcd,dy=a/gcd;</span><br><span class="line">		x1=x2=x*rate;</span><br><span class="line">		y1=y2=y*rate;</span><br><span class="line">		x1=(x1%dx+dx)%dx,y1=<span class="built_in">ABS</span>(d-a*x1)/b;</span><br><span class="line">		y2=(y2%dy+dy)%dy,x2=<span class="built_in">ABS</span>(d-b*y2)/a;</span><br><span class="line">		<span class="keyword">if</span>(x1+y1&lt;x2+y2||(x1+y1==x2+y2&amp;&amp;a*x1+b*y1&lt;a*x2+b*y2))cout&lt;&lt;x1&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;y1&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;x2&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;y2&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Yifan
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2022/09/04/%E8%A7%A3%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B/" title="解不定方程">http://example.com/2022/09/04/解不定方程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/09/04/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" rel="next" title="快速傅里叶变换">
+      快速傅里叶变换 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yifan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
