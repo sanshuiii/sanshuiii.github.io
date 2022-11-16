@@ -273,6 +273,99 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Yifan">
+      <meta itemprop="description" content="It was the best of times, it was the worst of times.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sanshuiii">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/" class="post-title-link" itemprop="url">NLP-CS224n-2-词传感器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-09-04 17:25:57 / Modified: 17:29:38" itemprop="dateCreated datePublished" datetime="2022-09-04T17:25:57+04:00">2022-09-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19b411n7K1?p=2">传送门</a></h1><h1 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h1><h2 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h2><p>梯度下降，随机梯度下降。</p>
+<p>实质上是无监督学习，每个batch的最小单位可以是一组word2word的映射，输入值是一个中心词，输出值是一个其对应的outside词，要学习是从中心词要其对于outside词的映射，训练结束后只需要过程中的隐藏层信息，即词向量。</p>
+<h2 id="More-Detials-of-Word2Vec"><a href="#More-Detials-of-Word2Vec" class="headerlink" title="More Detials of Word2Vec"></a>More Detials of Word2Vec</h2><ul>
+<li>一个词要两个向量的原因？<ul>
+<li>为了更容易优化，但是一个也行</li>
+<li>事后可以对两个向量取平均值</li>
+</ul>
+</li>
+<li>两种变种模型<ul>
+<li>Skip Grams 即由中心词预测上下文（第一节课所述模型即SG）</li>
+<li>Continunous Bag of Words 即由上下文推测中心词<ul>
+<li>Negative Sampling 负采样</li>
+<li>每个训练sample只有一个输出为1，剩下的都为0，所以只需要选取 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="2.011ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 889 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g></g></g></svg></mjx-container> 个 0 输出点（即其对应的outside词向量）进行更新即可，如<script type="math/tex; mode=display">J_{neg-sample}(o,v_c,U)=-\log(\sigma(u_o^Tv_c))-\sum_{k=1}^K\log(\sigma(-u_k^Tv_c))</script>其中 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.292ex" height="1ex" role="img" focusable="false" viewBox="0 -431 571 442"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70E" d="M184 -11Q116 -11 74 34T31 147Q31 247 104 333T274 430Q275 431 414 431H552Q553 430 555 429T559 427T562 425T565 422T567 420T569 416T570 412T571 407T572 401Q572 357 507 357Q500 357 490 357T476 358H416L421 348Q439 310 439 263Q439 153 359 71T184 -11ZM361 278Q361 358 276 358Q152 358 115 184Q114 180 114 178Q106 141 106 117Q106 67 131 47T188 26Q242 26 287 73Q316 103 334 153T356 233T361 278Z"></path></g></g></g></svg></mjx-container> 表示sigmoid函数。这样就可以将一个多分类问题变成一个二分类问题来处理。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h1><h2 id="Co-occurrence-vectors共现矩阵"><a href="#Co-occurrence-vectors共现矩阵" class="headerlink" title="Co-occurrence vectors共现矩阵"></a>Co-occurrence vectors共现矩阵</h2><p>即将上一章中的无向完全图用矩阵表示写出，问题明显，即过于稀疏，体积过大，鲁棒性差</p>
+<p>Solution： 只储存那些更重要的信息，压缩维度，类似WORD2VEC</p>
+<h2 id="Dimensionality-Reduction-on-X-HW1"><a href="#Dimensionality-Reduction-on-X-HW1" class="headerlink" title="Dimensionality Reduction on X (HW1)"></a>Dimensionality Reduction on X (HW1)</h2><p>对共现矩阵做奇异值分解，再重新组合，形成一个更小的矩阵</p>
+<p>Update: 将出现次数特别多的词，如the，he，has 单独处理</p>
+<h1 id="词向量的评估"><a href="#词向量的评估" class="headerlink" title="词向量的评估"></a>词向量的评估</h1><ul>
+<li>内部方法：规定一个中间方法，在词向量应用算法得到另一个词之后，我们对比词向量得到的词是否与我们人为规定的词相符。我们统计其预测的正确率，以此来代表词向量的好坏。</li>
+<li>外部方法：用一个真正的NLP任务来评价</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/04/NLP/NLP-CS224n-1-%E8%AF%8D%E5%90%91%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1275,7 +1368,7 @@ y-=t*dy                    （3.2）
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
