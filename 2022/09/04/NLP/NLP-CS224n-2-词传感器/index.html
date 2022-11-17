@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"sanshuiii.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="传送门Word2VecOptimization梯度下降，随机梯度下降。 实质上是无监督学习，每个batch的最小单位可以是一组word2word的映射，输入值是一个中心词，输出值是一个其对应的outside词，要学习是从中心词要其对于outside词的映射，训练结束后只需要过程中的隐藏层信息，即词向量。 More Detials of Word2Vec 一个词要两个向量的原因？ 为了更容易优化，但">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NLP-CS224n-2-词传感器">
-<meta property="og:url" content="http://example.com/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/index.html">
+<meta property="og:url" content="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/index.html">
 <meta property="og:site_name" content="Sanshuiii">
 <meta property="og:description" content="传送门Word2VecOptimization梯度下降，随机梯度下降。 实质上是无监督学习，每个batch的最小单位可以是一组word2word的映射，输入值是一个中心词，输出值是一个其对应的outside词，要学习是从中心词要其对于outside词的映射，训练结束后只需要过程中的隐藏层信息，即词向量。 More Detials of Word2Vec 一个词要两个向量的原因？ 为了更容易优化，但">
 <meta property="og:locale" content="en_US">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="Yifan">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/">
+<link rel="canonical" href="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/">
 
 
 <script id="page-configurations">
@@ -276,7 +276,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -371,7 +371,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://example.com/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/" title="NLP-CS224n-2-词传感器">http://example.com/2022/09/04/NLP/NLP-CS224n-2-词传感器/</a>
+    <a href="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-2-%E8%AF%8D%E4%BC%A0%E6%84%9F%E5%99%A8/" title="NLP-CS224n-2-词传感器">http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-2-词传感器/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.

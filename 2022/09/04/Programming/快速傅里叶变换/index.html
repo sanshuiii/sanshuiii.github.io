@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"sanshuiii.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="读这篇文章的前置条件1.了解函数，多项式等概念2.了解复数以及其乘法运算3.会写代码因为在看其他fft的教程的时候复数读完就不知道在说啥了，读了好多篇又抄了std才大致了解，所以通俗的讲一下fft是啥，主要是确定一下概念，梳理一下思路。一些更基础的内容就不再赘述了，如果遇到不知道复数是什么之类的，那可以看一下其他的教程。 什么是FFT法法塔(FFT)全称快速傅里叶变换(Fast Fourier T">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速傅里叶变换">
-<meta property="og:url" content="http://example.com/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html">
+<meta property="og:url" content="http://sanshuiii.github.io/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html">
 <meta property="og:site_name" content="Sanshuiii">
 <meta property="og:description" content="读这篇文章的前置条件1.了解函数，多项式等概念2.了解复数以及其乘法运算3.会写代码因为在看其他fft的教程的时候复数读完就不知道在说啥了，读了好多篇又抄了std才大致了解，所以通俗的讲一下fft是啥，主要是确定一下概念，梳理一下思路。一些更基础的内容就不再赘述了，如果遇到不知道复数是什么之类的，那可以看一下其他的教程。 什么是FFT法法塔(FFT)全称快速傅里叶变换(Fast Fourier T">
 <meta property="og:locale" content="en_US">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190327172940841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzc4MTEw,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://example.com/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
+<link rel="canonical" href="http://sanshuiii.github.io/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
 
 
 <script id="page-configurations">
@@ -280,7 +280,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
+    <link itemprop="mainEntityOfPage" href="http://sanshuiii.github.io/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -394,7 +394,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://example.com/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="快速傅里叶变换">http://example.com/2022/09/04/Programming/快速傅里叶变换/</a>
+    <a href="http://sanshuiii.github.io/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="快速傅里叶变换">http://sanshuiii.github.io/2022/09/04/Programming/快速傅里叶变换/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.

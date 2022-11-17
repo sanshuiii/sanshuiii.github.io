@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"sanshuiii.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="传送门笔者在总结时跳过了第3，4，5节课。其中第3，4节课分别介绍了神经网络和反向传播，笔者假定读者有着基本的机器学习和神经网络相关的知识，所以掠过了这两章内容。其中第5节课介绍了语法结构，但是因为与笔者目前方向不一致，故略去。 本节为第6节课，介绍了Language Model并且以此为契机引入了RNN模型。 Language Model 语言模型1天气预报说今天下雨，所以出门要________">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NLP-CS224n-3-RNN&amp;LanguageModel">
-<meta property="og:url" content="http://example.com/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/index.html">
+<meta property="og:url" content="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/index.html">
 <meta property="og:site_name" content="Sanshuiii">
 <meta property="og:description" content="传送门笔者在总结时跳过了第3，4，5节课。其中第3，4节课分别介绍了神经网络和反向传播，笔者假定读者有着基本的机器学习和神经网络相关的知识，所以掠过了这两章内容。其中第5节课介绍了语法结构，但是因为与笔者目前方向不一致，故略去。 本节为第6节课，介绍了Language Model并且以此为契机引入了RNN模型。 Language Model 语言模型1天气预报说今天下雨，所以出门要________">
 <meta property="og:locale" content="en_US">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="Yifan">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/">
+<link rel="canonical" href="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/">
 
 
 <script id="page-configurations">
@@ -276,7 +276,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/">
+    <link itemprop="mainEntityOfPage" href="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -374,7 +374,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://example.com/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/" title="NLP-CS224n-3-RNN&amp;LanguageModel">http://example.com/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/</a>
+    <a href="http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/" title="NLP-CS224n-3-RNN&amp;LanguageModel">http://sanshuiii.github.io/2022/09/04/NLP/NLP-CS224n-3-RNN-LanguageModel/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
