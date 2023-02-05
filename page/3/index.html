@@ -20,36 +20,30 @@
     var CONFIG = {"hostname":"sanshuiii.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="问题引入陌上花开1若干个元素有三个属性，问多少对数对（）满足 a_i\leq a_j  , b_i\leq b_j , c_i\leq c_j 分析如此类问题可以视为一个多维偏序问题，偏序即满足自反性，反对称性，传递性。画成拓扑图则可被视为一张DAG。 考虑这个问题的简单版本，如果只有一个属性，可以容易得到；如果有两个属性，常见的解决方案是对其中一维排序后，树状数组维护前缀，按照某一位以每个元素l">
-<meta property="og:type" content="article">
-<meta property="og:title" content="cdq分治">
-<meta property="og:url" content="http://sanshuiii.github.io/2022/09/04/Programming/cdq%E5%88%86%E6%B2%BB/index.html">
+  <meta name="description" content="It was the best of times, it was the worst of times.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sanshuiii">
+<meta property="og:url" content="http://sanshuiii.github.io/page/3/index.html">
 <meta property="og:site_name" content="Sanshuiii">
-<meta property="og:description" content="问题引入陌上花开1若干个元素有三个属性，问多少对数对（）满足 a_i\leq a_j  , b_i\leq b_j , c_i\leq c_j 分析如此类问题可以视为一个多维偏序问题，偏序即满足自反性，反对称性，传递性。画成拓扑图则可被视为一张DAG。 考虑这个问题的简单版本，如果只有一个属性，可以容易得到；如果有两个属性，常见的解决方案是对其中一维排序后，树状数组维护前缀，按照某一位以每个元素l">
+<meta property="og:description" content="It was the best of times, it was the worst of times.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020032217554238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzc4MTEw,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322175906792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzc4MTEw,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200322180429916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzc4MTEw,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2022-09-04T12:07:16.000Z">
-<meta property="article:modified_time" content="2022-09-04T13:14:58.000Z">
 <meta property="article:author" content="Yifan">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020032217554238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzc4MTEw,size_16,color_FFFFFF,t_70#pic_center">
 
-<link rel="canonical" href="http://sanshuiii.github.io/2022/09/04/Programming/cdq%E5%88%86%E6%B2%BB/">
+<link rel="canonical" href="http://sanshuiii.github.io/page/3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>cdq分治 | Sanshuiii</title>
+  <title>Sanshuiii</title>
   
 
 
@@ -273,10 +267,9 @@ mjx-container[display="true"] + br {
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
-
-    
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -292,9 +285,10 @@ mjx-container[display="true"] + br {
       <meta itemprop="name" content="Sanshuiii">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          cdq分治
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/04/Programming/cdq%E5%88%86%E6%B2%BB/" class="post-title-link" itemprop="url">cdq分治</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -317,13 +311,6 @@ mjx-container[display="true"] + br {
             </span>
 
           
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
 
         </div>
       </header>
@@ -334,7 +321,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h1><h2 id="陌上花开1"><a href="#陌上花开1" class="headerlink" title="陌上花开1"></a>陌上花开<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3810">1</a></h2><p>若干个元素有三个属性<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.439ex;" xmlns="http://www.w3.org/2000/svg" width="5.159ex" height="2.009ex" role="img" focusable="false" viewBox="0 -694 2280.3 888"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mo" transform="translate(529,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(973.7,0)"><path data-c="1D44F" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"></path></g><g data-mml-node="mo" transform="translate(1402.7,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1847.3,0)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g></g></g></svg></mjx-container>，问多少对数对<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.462ex;" xmlns="http://www.w3.org/2000/svg" width="7.244ex" height="2.158ex" role="img" focusable="false" viewBox="0 -750 3201.7 954"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">（</text></g><g data-mml-node="mi" transform="translate(1000,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1345,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1789.7,0)"><path data-c="1D457" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path></g><g data-mml-node="mi" transform="translate(2201.7,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">）</text></g></g></g></svg></mjx-container>满足 <script type="math/tex">a_i\leq a_j  , b_i\leq b_j , c_i\leq c_j</script></p>
+          <h1 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h1><h2 id="陌上花开1"><a href="#陌上花开1" class="headerlink" title="陌上花开1"></a>陌上花开<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3810">1</a></h2><p>若干个元素有三个属性<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.439ex;" xmlns="http://www.w3.org/2000/svg" width="5.159ex" height="2.009ex" role="img" focusable="false" viewBox="0 -694 2280.3 888"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mo" transform="translate(529,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(973.7,0)"><path data-c="1D44F" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"></path></g><g data-mml-node="mo" transform="translate(1402.7,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1847.3,0)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g></g></g></svg></mjx-container>，问多少对数对<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.462ex;" xmlns="http://www.w3.org/2000/svg" width="7.244ex" height="2.158ex" role="img" focusable="false" viewBox="0 -750 3201.7 954"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">（</text></g><g data-mml-node="mi" transform="translate(1000,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1345,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1789.7,0)"><path data-c="1D457" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path></g><g data-mml-node="mi" transform="translate(2201.7,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">）</text></g></g></g></svg></mjx-container>满足 <script type="math/tex">a_i\leq a_j  , b_i\leq b_j , c_i\leq c_j</script></p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>如此类问题可以视为一个多维偏序问题，偏序即满足自反性，反对称性，传递性。画成拓扑图则可被视为一张DAG。</p>
 <p>考虑这个问题的简单版本，如果只有一个属性，可以容易得到；如果有两个属性，常见的解决方案是对其中一维排序后，树状数组维护前缀，按照某一位以每个元素log的复杂度顺序处理。</p>
 <p>在维度更高的情况下，cdq分治是简化问题的一个有效手段。</p>
@@ -393,51 +380,260 @@ mjx-container[display="true"] + br {
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="cdq分治的思想"><a href="#cdq分治的思想" class="headerlink" title="cdq分治的思想"></a>cdq分治的思想</h2><p>把高维偏序问题降低一个维度，以一个log为代价。</p>
 <h2 id="cdq分治的套路"><a href="#cdq分治的套路" class="headerlink" title="cdq分治的套路"></a>cdq分治的套路</h2><p>先对一个维度排序，接下来分治处理贡献：分治解决同块贡献；完事后因为第一维度在分治之后已经保证有序，接下来就变成在左边上统计右边的情况。如果是三维的，那么直接排序+归并即可再减掉一维，这一就减掉了两维，非常轻松的解决掉3维偏序的情况。如果是4维，可以无脑再套一个树套树。据说还可以cdq套cdq，但是目前还没有想明白怎么搞，先咕。</p>
 
+      
     </div>
 
     
     
     
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Yifan
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="http://sanshuiii.github.io/2022/09/04/Programming/cdq%E5%88%86%E6%B2%BB/" title="cdq分治">http://sanshuiii.github.io/2022/09/04/Programming/cdq分治/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
-</div>
-
-
       <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" rel="prev" title="快速傅里叶变换">
-      <i class="fa fa-chevron-left"></i> 快速傅里叶变换
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/04/Programming/%E4%B8%89%E8%A7%92%E5%BD%A2%E5%A4%96%E5%BF%83%E8%AE%A1%E7%AE%97/" rel="next" title="三角形外心计算">
-      三角形外心计算 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sanshuiii.github.io/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Yifan">
+      <meta itemprop="description" content="It was the best of times, it was the worst of times.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sanshuiii">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/04/Programming/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" class="post-title-link" itemprop="url">快速傅里叶变换</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-09-04 16:06:03 / Modified: 17:19:22" itemprop="dateCreated datePublished" datetime="2022-09-04T16:06:03+04:00">2022-09-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="读这篇文章的前置条件"><a href="#读这篇文章的前置条件" class="headerlink" title="读这篇文章的前置条件"></a>读这篇文章的前置条件</h2><p>1.了解函数，多项式等概念<br>2.了解复数以及其乘法运算<br>3.会写代码<br>因为在看其他fft的教程的时候复数读完就不知道在说啥了，读了好多篇又抄了std才大致了解，所以通俗的讲一下fft是啥，主要是确定一下概念，梳理一下思路。一些更基础的内容就不再赘述了，如果遇到不知道复数是什么之类的，那可以看一下其他的教程。</p>
+<h2 id="什么是FFT"><a href="#什么是FFT" class="headerlink" title="什么是FFT"></a>什么是FFT</h2><p>法法塔(FFT)全称快速傅里叶变换(Fast Fourier Transform),我们经常在求高精度乘法的时候用到这个算法，但是<b>高精乘只是本身FFT的一种应用</b> ，事实上，傅里叶变换本身只是一种<b>将多项式在点值表示法和多项式表示法之间转换的方法</b>。</p>
+<h2 id="简单的多项式乘法"><a href="#简单的多项式乘法" class="headerlink" title="简单的多项式乘法"></a>简单的多项式乘法</h2><p>我们考虑一个n次多项式P(x)和另一个m次多项式Q(x)，当我们将x取为10，那么事实上多项式就表示一个十进制数。我们在做乘法的时候，可以将P(x)和Q(x)做卷积，也就是我们日常所用的竖式乘法，得到一个新的多项式 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="19ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8398 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mo" transform="translate(750,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1139,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(1711,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(2377.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(3433.6,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(4184.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4573.6,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(5145.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(5756.8,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mi" transform="translate(6257,0)"><path data-c="1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"></path></g><g data-mml-node="mo" transform="translate(7048,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(7437,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(8009,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>。对A(x)取x=10，就可以得到乘法的结果。这样做的复杂度是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="8.465ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 3741.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(2252.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mi" transform="translate(2752.4,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3352.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> 。</p>
+<h2 id="用点值表示法来进行多项式乘法"><a href="#用点值表示法来进行多项式乘法" class="headerlink" title="用点值表示法来进行多项式乘法"></a>用点值表示法来进行多项式乘法</h2><p>我们上面是在多项式表示法下解决多项式乘法问题，事实上我们还有另一种解决方案。</p>
+<p>我们先介绍多项式的<b>点值表示法</b>。对于一个n次多项式P(x)，如果我们能在平面上取n+1个点，记为H(x)={(x<sub>1</sub>,y<sub>1</sub>),(x<sub>2</sub>,y<sub>2</sub>)…(x<sub>n+1</sub>,y<sub>n+1</sub>)}，那么我们一定可以定出一个唯一的n次多项式(当然，也可以取更多的点，只要这些点都落在多项式函数上就可以，它等价于一个大于n的次数的系数都为0的更高次多项式，事实上我们在后面操作时的确会取过量个点)。此时我们可以称H(x)和P(x)等价。</p>
+<p>那么假设我们现在有两个点值表示法下的多项式H(x),G(x),我们不妨取n=(H的次数+y的次数+1)个点，这样我们一定可以正确表示两个小于等于n次的多项式H(x)和G(x)。那么接下来我们可以很快速的求解对应的点值表示法下的多项式：考虑每一个选取的横坐标x，我们有y1=H(x),y2=G(x),当这这两个多项式的乘积也y3=Z(x)一定满足：<script type="math/tex">y3 = y1 \cdot y2</script></p>
+<p>这个很容易理解，想象一下，当x=10时，这不就是我们熟知的乘法吗？只不过是直接在结果上的表现形式罢了。</p>
+<p>而因为我们取得点足够多，所以求出来的n个点一定足够表述Z(x)这个多项式方程。<br>这样，我们就可以在O(n+m)时间[两个多项式的长度分别为n，m的情况下]内求解多项式乘法，也就是将这么多个点对应相乘即可。</p>
+<p>那么现在我们要解决的问题就是：如何将点值表示法和多项式表示法进行快速的转换。</p>
+<h2 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h2><p>怎么样把多项式表示法变成点值表示法呢，一个简单的想法是，随便取一些点，求出对应的值，那么就完成了。那么怎么变回去呢？这就是离散傅里叶变换给我们提供的思路：如果我们在将多项式变成点值表示法时取一些特殊的点，那么我们就可以用类似的方法将点值表示法变回多项式表示法。</p>
+<p>傅里叶告诉我们，如果我们要取n个点，那么取n次单位复根就会有一个美妙的性质。(如果你是从其他教程过来的，那么应该知道这说的是啥，就不多做赘述了。)<br>接下来讲一下为什么要取这些值呢？</p>
+<p>这一篇里面的数学推导非常直白<a target="_blank" rel="noopener" href="https://www.cnblogs.com/RabbitHu/p/FFT.html，我这里就直接用他的图了。">https://www.cnblogs.com/RabbitHu/p/FFT.html，我这里就直接用他的图了。</a><br><img src="https://img-blog.csdnimg.cn/20190327172940841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzc4MTEw,size_16,color_FFFFFF,t_70" alt="离散傅里叶变换"><br>这是什么意思呢？<br>意思就是，如果我们取单位负根，那么我们就能用几乎一模一样的函数把点值表示法变回多项式表示法，这是x取单位复根的意义。事实上，这个单位负根和我们求出来的结果其实没什么关系，这个单纯是用来做变换的手段。<br><img src="https://img-blog.csdnimg.cn/20190327165335990.png" alt="结论"></p>
+<h2 id="加速"><a href="#加速" class="headerlink" title="加速"></a>加速</h2><p>但是，直接带入点计算，<del>就算使用高明的秦九韶算法</del> 每个坐标需要O(n)的时间，n个坐标就是O(n^2^)，那么并没有什么用处。这时候，单位负根的另一个性质就得到了体现，我们可以利用分治的思想，将这个过程的时间复杂度降到O(nlogn)。</p>
+<p>这就是快速傅里叶变换FFT，说白了就是一个形式转换函数的加速版本。</p>
+<p>首先，为了方便起见，我们需要项数为2的幂次，不妨记为n=2^k^。研究多项式，有多项式P<sub>n</sub>的最高次为n-1次，超出原多项式的项系数为0，这个我们在上面讨论过。</p>
+<p>接下来 我们可以按照奇偶将多项式函数P(x)分成两部分，即:<center>P<sub>n</sub>(x)=ODD(x)+EVEN(x)</center></p>
+<p>我们将ODD(x)中提出一个x，那么我们得到<center>x * EVEN(x)=even(x)</center></p>
+<p>联立可以得到:<center>P<sub>n</sub>(x)=x * even(x)+EVEN(x)</center></p>
+<p>不难发现，偶次项组成的多项式中，我们可以用x^2来代替x，即得到新的</p>
+<center>P<sub>n</sub>(x)=A<sub>n/2</sub>(x<sup>2</sup>)+B<sub>n/2</sub>(x<sup>2</sup>)</center> 
+
+<p>其中A和B都是项数减半的多项式。</p>
+<p>假设我们现在代入x=w<sub>n</sub><sup>k</sup>(当 k &lt; n/2时),有：<center>P<sub>n</sub>(w<sub>n</sub><sup>k</sup>)=A<sub>n/2</sub>(w<sub>n</sub><sup>wk</sup>)+B<sub>n/2</sub>(w<sub>n</sub><sup>2k</sup>) * x</center></p>
+<p>整理变形得到：<center>P<sub>n</sub>(w<sub>n</sub><sup>k</sup>)=A<sub>n/2</sub>(w<sub>n</sub><sup>2k</sup>)+B<sub>n/2</sub>(w<sub>n</sub><sup>2k</sup>) * w<sub>n</sub><sup>k</sup></center></p>
+<p>由单位复根性质可知：<center>w<sub>n</sub><sup>2k</sup>=w<sub>n/2</sub><sup>k</sup></center><br>即：<center>P<sub>n</sub>(w<sub>n</sub><sup>k</sup>)=A<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>)+B<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>) * w<sub>n</sub><sup>k</sup></center></p>
+<p>类似地，当n=k+n/2，我们有:<center>P<sub>n</sub>(w<sub>n</sub><sup>k+n/2</sup>)=A<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>)+B<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>) * w<sub>n</sub><sup>k+n/2</sup></center></p>
+<p>整理得到：<center>P<sub>n</sub>(w<sub>n</sub><sup>k+n/2</sup>)=A<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>)-B<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>) * w<sub>n</sub><sup>k</sup></center></p>
+<p>综上，我们得到两个递推公式：</p>
+<center>P<sub>n</sub>(w<sub>n</sub><sup>k</sup>)=A<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>)+B<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>) * w<sub>n</sub><sup>k</sup></center>
+
+<center>P<sub>n</sub>(w<sub>n</sub><sup>k+n/2</sup>)=A<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>)-B<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>) * w<sub>n</sub><sup>k</sup></center>
+
+<p>从而可以在nlogn时间内进行傅里叶变换。</p>
+<h2 id="迭代解法"><a href="#迭代解法" class="headerlink" title="迭代解法"></a>迭代解法</h2><p>分治常规的处理方法是递归。但是众所周知，迭代比递归快，所以我们将考虑如何迭代来求解该问题。<br><img src="https://img-blog.csdnimg.cn/20190327215807147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzc4MTEw,size_16,color_FFFFFF,t_70" alt="迭代"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求二进制翻转数位置</span></span><br><span class="line">	<span class="type">int</span> lim=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;lim)&lt;n)++lim;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i){</span><br><span class="line">		<span class="type">int</span> t=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;lim;++j)<span class="keyword">if</span>((i&gt;&gt;j)&amp;<span class="number">1</span>)t|=(<span class="number">1</span>&lt;&lt;(lim-j<span class="number">-1</span>));</span><br><span class="line">		<span class="keyword">if</span>(i&lt;t)<span class="built_in">swap</span>(a[i],a[t]);</span><br><span class="line">	}</span><br></pre></td></tr></table></figure>
+<h2 id="蝴蝶操作"><a href="#蝴蝶操作" class="headerlink" title="蝴蝶操作"></a>蝴蝶操作</h2><p>这个操作是什么意思呢？<br>我们有两个式子：</p>
+<center>P<sub>n</sub>(w<sub>n</sub><sup>k</sup>)=A<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>)+B<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>) * w<sub>n</sub><sup>k</sup></center>
+
+<center>P<sub>n</sub>(w<sub>n</sub><sup>k+n/2</sup>)=A<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>)-B<sub>n/2</sub>(w<sub>n/2</sub><sup>k</sup>) * w<sub>n</sub><sup>k</sup></center>
+
+<p>但是我们又要同时更新这两个式子，所以怎么办呢？</p>
+<p>那么我们另一个新的t等于后项，然后再去分别更新。有点类似于什么呢？大概是swap里面的t的作用。</p>
+<p>于是我们就可以在没有buf的情况下计算fft了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">2</span>;l&lt;=n;l&lt;&lt;=<span class="number">1</span>){</span><br><span class="line">		<span class="type">int</span> m=l/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span>(cp *p=a;p!=a+n;p+=l){</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;++i){</span><br><span class="line">				cp t=omg[n/l*i]*p[i+m];</span><br><span class="line">				p[i+m]=p[i]-t;</span><br><span class="line">				p[i]+=t;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br></pre></td></tr></table></figure>
+<h2 id="高精度完整代码"><a href="#高精度完整代码" class="headerlink" title="高精度完整代码"></a>高精度完整代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> cp complex<span class="string">&lt;double&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI=<span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1005</span>;</span><br><span class="line"><span class="type">int</span> n=<span class="number">1</span>,res[N];</span><br><span class="line">string s1,s2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(cp *omg,cp *inv)</span></span>{</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;N;++i){</span><br><span class="line">		omg[i]=<span class="built_in">cp</span>(<span class="built_in">cos</span>(<span class="number">2</span>*PI*i/n),<span class="built_in">sin</span>(<span class="number">2</span>*PI*i/n));</span><br><span class="line">		inv[i]=<span class="built_in">conj</span>(omg[i]);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fft</span><span class="params">(cp *a,cp *omg)</span></span>{</span><br><span class="line">	<span class="type">int</span> lim=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;lim)&lt;n)++lim;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i){</span><br><span class="line">		<span class="type">int</span> t=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;lim;++j)<span class="keyword">if</span>((i&gt;&gt;j)&amp;<span class="number">1</span>)t|=(<span class="number">1</span>&lt;&lt;(lim-j<span class="number">-1</span>));</span><br><span class="line">		<span class="keyword">if</span>(i&lt;t)<span class="built_in">swap</span>(a[i],a[t]);</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">2</span>;l&lt;=n;l&lt;&lt;=<span class="number">1</span>){</span><br><span class="line">		<span class="type">int</span> m=l/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span>(cp *p=a;p!=a+n;p+=l){</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;++i){</span><br><span class="line">				cp t=omg[n/l*i]*p[i+m];</span><br><span class="line">				p[i+m]=p[i]-t;</span><br><span class="line">				p[i]+=t;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt;s1&gt;&gt;s2){</span><br><span class="line">		cp a[N],b[N],omg[N],inv[N];</span><br><span class="line">		<span class="built_in">memset</span>(res,<span class="number">0</span>,<span class="built_in">sizeof</span>(res));</span><br><span class="line">		<span class="type">int</span> l1=s1.<span class="built_in">length</span>(),l2=s2.<span class="built_in">length</span>();</span><br><span class="line">		n=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span>(n&lt;l1+l2)n&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;l1;++i)a[i].<span class="built_in">real</span>(s1[l1-i<span class="number">-1</span>]-<span class="string">'0'</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;l2;++i)b[i].<span class="built_in">real</span>(s2[l2-i<span class="number">-1</span>]-<span class="string">'0'</span>);</span><br><span class="line">		<span class="built_in">init</span>(omg,inv);</span><br><span class="line">		<span class="built_in">fft</span>(a,omg);</span><br><span class="line">		<span class="built_in">fft</span>(b,omg);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)a[i]*=b[i];</span><br><span class="line">		<span class="built_in">fft</span>(a,inv);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i){</span><br><span class="line">			res[i]+=<span class="built_in">floor</span>(a[i].<span class="built_in">real</span>()/n+<span class="number">0.5</span>);</span><br><span class="line">	        res[i+<span class="number">1</span>]+=res[i]/<span class="number">10</span>;</span><br><span class="line">	        res[i]%=<span class="number">10</span>;</span><br><span class="line">		}</span><br><span class="line">		<span class="type">int</span> flag=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=n;~i;--i){</span><br><span class="line">			<span class="keyword">if</span>(flag||res[i]){</span><br><span class="line">				flag=<span class="number">1</span>;</span><br><span class="line">				cout&lt;&lt;res[i];</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">if</span>(flag==<span class="number">0</span>)cout&lt;&lt;<span class="number">0</span>;</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	}</span><br><span class="line">}                      </span><br><span class="line"></span><br><span class="line">							                                </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sanshuiii.github.io/2022/09/04/Programming/%E8%A7%A3%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Yifan">
+      <meta itemprop="description" content="It was the best of times, it was the worst of times.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sanshuiii">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/04/Programming/%E8%A7%A3%E4%B8%8D%E5%AE%9A%E6%96%B9%E7%A8%8B/" class="post-title-link" itemprop="url">解不定方程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-09-04 15:57:10 / Modified: 17:15:00" itemprop="dateCreated datePublished" datetime="2022-09-04T15:57:10+04:00">2022-09-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>传送门：<a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1356">http://acm.hdu.edu.cn/showproblem.php?pid=1356</a></p>
+<p>由题意，就是要解一个不定方程ax+by=d，要求（abs(x)+abs(y)）最小。</p>
+<h2 id="一-exgcd"><a href="#一-exgcd" class="headerlink" title="一.exgcd"></a>一.exgcd</h2><p>先从exgcd说起。由裴蜀定理可知，ax+by=gcd(a,b)必定存在整数解(x,y)。那么有：</p>
+<pre><code>ax+by=gcd(a,b)=gcd(b,a%b)=bx'+(a%b)y'                （1.1）
+</code></pre><p>其中等号1，3用到了裴蜀定理，等号2用到了gcd的性质。</p>
+<p>由a%b=a-a/b(本文中所有的除法都是整数除法)那么我们把等式最右边变形，可以得到：</p>
+<pre><code>ax+by=bx'+ay'-(a/b)y'=ay'+b(x'-(a/b)*y')            （1.2）
+</code></pre><p>于是得到一组解：</p>
+<pre><code>x=y'                                （1.3）
+y=x'-(a/b)*y'                            （1.4）
+</code></pre><p>所以可以用递归的方式求解。</p>
+<p>最后考虑一下边界条件，当b==0时，从线性同余方程的角度看x=1，y=0显然是一组可行解。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)</span></span>{</span><br><span class="line">	<span class="keyword">if</span>(!b){</span><br><span class="line">		x=<span class="number">1</span>;</span><br><span class="line">		y=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> a;</span><br><span class="line">	}</span><br><span class="line">	<span class="type">int</span> d=<span class="built_in">exgcd</span>(a,b,x,y);</span><br><span class="line">	<span class="built_in">swap</span>(x,y);<span class="comment">//此时x=y',y=x'</span></span><br><span class="line">	y-=a/b*x;<span class="comment">//考虑x，y的实际情况，也就是 y=x'-(a/b)*y'</span></span><br><span class="line">	<span class="keyword">return</span> d;<span class="comment">//顺便吧gcd也求出来</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="二-求通解"><a href="#二-求通解" class="headerlink" title="二.求通解"></a>二.求通解</h2><p>再考虑这道题，等号右边并不是gcd，而是一个d，因为题目告诉你一定有解，所以gcd一定是d的因子，我们把x和y都乘上一个rate=(d/gcd(a,b)),得到一组初始的</p>
+<pre><code>x0=x*rate                （2.1）
+y0=y*rate                （2.2）
+</code></pre><p>接下来就要去找对x0和y0加加减减，来求这个MIN(abs(x0+dx)+abs(y0-dy))。</p>
+<p>我们先考虑</p>
+<p>再考虑dx和dy的关系：</p>
+<pre><code>a*x0+b*y0=d                    （2.3）
+</code></pre><p>对方程变形得到：</p>
+<pre><code>a*(x0+dx)+b*(y0-dy)=d                （2.4）
+</code></pre><p>把里面的式子提出来得到：</p>
+<pre><code>a*dx-b*dy=0                    （2.5）
+</code></pre><p>那么就是:</p>
+<pre><code>dx/dy=b/a                    （2.6）
+</code></pre><p>考虑gcd(a,b)，可以得到：</p>
+<pre><code>dx/dy=(b/gcd)/(a/gcd)                （2.7）
+</code></pre><p>此时(b/gcd)与(a/gcd)是互质的所以可以取到的最小的dx和dy就是：</p>
+<pre><code>dx=(b/gcd)                    （2.8）
+dy=(a/gcd)                    （2.9）
+</code></pre><p>那么方程的通解一定满足如下条件：</p>
+<pre><code>ansx=x0+k*dx                    （2.10）
+ansy=y0-k*dy                    （2.11）
+</code></pre><h2 id="三-问题转化"><a href="#三-问题转化" class="headerlink" title="三.问题转化"></a>三.问题转化</h2><p>知道了通解，那么哪一组解才是最优的呢？</p>
+<p>因为dx！=dy，不妨设dx&gt;dy，我们假设此时x满足</p>
+<pre><code>|x|&gt;&gt;|dx|(&gt;&gt;表示远大于)
+</code></pre><p>那么我们让</p>
+<pre><code>x+=t*dx                    （3.1）
+y-=t*dy                    （3.2）
+</code></pre><p>在x和y均不变号的情况下，答案会变小t*(dx-dy)，是一组更优的解。所以最优解一定满足:</p>
+<pre><code>|x|&lt;|dx|                （3.3）
+</code></pre><p>那么问题就可以转化为变成了求方程关于x的最小正整数解。</p>
+<p>但是问题在于，根据式(3.3)，去掉绝对值后，x可能是负的。但是问题在于，我们要求的方程</p>
+<pre><code>a*x+b*y=d                (3.4)
+</code></pre><p>可以变形为</p>
+<pre><code>y=(d-a*x)/b                (3.5)
+</code></pre><p>我们上面已经证明，通过上述方程构造出来的x，上面方程中的y一定是有解的，那么对于一个确定的x，我们总希望y最小，因为dx&gt;dy，那么如果x取到负数，那么一定会大大增加y的值，所以很有可能会更糟。所以我们只要考虑x取最小正整数的情况就可以了。（我直言了，我不会证明，但是我的直觉告诉我这样做很对，oj也告诉我这样做很对）。</p>
+<p>反之，如果dy&gt;dx，那么考虑y的最小正整数解即可。</p>
+<h2 id="四-求最小正整数解"><a href="#四-求最小正整数解" class="headerlink" title="四.求最小正整数解"></a>四.求最小正整数解</h2><p>那这就非常容易了（说白了就是取模）：</p>
+<pre><code>ansx=（ansx%dx+dx）%dx
+</code></pre><p>然后用式（3.5）：</p>
+<pre><code>ansy=(d-a*ansx)/b
+</code></pre><p>就完事了。</p>
+<h2 id="五-贴代码"><a href="#五-贴代码" class="headerlink" title="五.贴代码"></a>五.贴代码</h2><p>看清题意，多写两个if就完事了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ABS(x) (((x)&gt;0)?(x):-(x))</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x,y,x1,x2,y1,y2,dx,dy;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)</span></span>{</span><br><span class="line">	<span class="keyword">if</span>(!b){x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span> a;}</span><br><span class="line">	<span class="type">int</span> d=<span class="built_in">exgcd</span>(b,a%b,x,y);</span><br><span class="line">	<span class="type">int</span> t=x;x=y,y=t-(a/b)*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">(<span class="type">int</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	x=<span class="number">0</span>;<span class="type">int</span> f=<span class="number">1</span>;<span class="type">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>){<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=<span class="built_in">getchar</span>();}</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>){x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>;ch=<span class="built_in">getchar</span>();}</span><br><span class="line">	x*=f;<span class="keyword">return</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="type">int</span> a,b,d;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>){</span><br><span class="line">		<span class="built_in">read</span>(a),<span class="built_in">read</span>(b),<span class="built_in">read</span>(d);</span><br><span class="line">		<span class="keyword">if</span>(!a&amp;&amp;!b&amp;&amp;!d)<span class="keyword">break</span>;</span><br><span class="line">		<span class="type">int</span> gcd=<span class="built_in">exgcd</span>(a,b,x,y);</span><br><span class="line">		<span class="type">int</span> rate=d/gcd;</span><br><span class="line">		dx=b/gcd,dy=a/gcd;</span><br><span class="line">		x1=x2=x*rate;</span><br><span class="line">		y1=y2=y*rate;</span><br><span class="line">		x1=(x1%dx+dx)%dx,y1=<span class="built_in">ABS</span>(d-a*x1)/b;</span><br><span class="line">		y2=(y2%dy+dy)%dy,x2=<span class="built_in">ABS</span>(d-b*y2)/a;</span><br><span class="line">		<span class="keyword">if</span>(x1+y1&lt;x2+y2||(x1+y1==x2+y2&amp;&amp;a*x1+b*y1&lt;a*x2+b*y2))cout&lt;&lt;x1&lt;&lt;<span class="string">" "</span>&lt;&lt;y1&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;x2&lt;&lt;<span class="string">" "</span>&lt;&lt;y2&lt;&lt;endl;</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 
 
 
@@ -489,7 +685,6 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%BC%95%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">问题引入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%801"><span class="nav-number">1.1.</span> <span class="nav-text">陌上花开1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%8F%E5%BA%8F%E5%92%8C%E5%85%A8%E5%BA%8F"><span class="nav-number">2.1.</span> <span class="nav-text">偏序和全序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E5%BA%8F%E5%AF%B9"><span class="nav-number">2.2.</span> <span class="nav-text">逆序对</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CDQ%E5%88%86%E6%B2%BB"><span class="nav-number">3.</span> <span class="nav-text">CDQ分治</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F%E8%AE%A1%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">二维偏序计数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%BB%BA%E6%A8%A1"><span class="nav-number">3.1.1.</span> <span class="nav-text">问题建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E9%80%86%E5%BA%8F%E5%AF%B9%E9%97%AE%E9%A2%98%E4%B8%BA%E4%BE%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">以逆序对问题为例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%9A%B4%E5%8A%9B%E7%9A%84%E8%A7%A3%E6%B3%95"><span class="nav-number">3.1.3.</span> <span class="nav-text">更暴力的解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F%E8%AE%A1%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">三维偏序计数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%BB%BA%E6%A8%A1-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">问题建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="nav-number">3.2.2.</span> <span class="nav-text">算法流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cdq%E5%88%86%E6%B2%BB%E7%9A%84%E6%9E%81%E9%99%90"><span class="nav-number">4.</span> <span class="nav-text">cdq分治的极限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">拓展问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%8F%E5%BA%8F-%E5%85%A8%E5%BA%8F"><span class="nav-number">4.1.1.</span> <span class="nav-text">偏序+全序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E5%92%8C-%E5%85%A8%E5%BA%8F"><span class="nav-number">4.1.2.</span> <span class="nav-text">求和+全序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">4.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cdq%E5%88%86%E6%B2%BB%E7%9A%84%E6%80%9D%E6%83%B3"><span class="nav-number">5.1.</span> <span class="nav-text">cdq分治的思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cdq%E5%88%86%E6%B2%BB%E7%9A%84%E5%A5%97%E8%B7%AF"><span class="nav-number">5.2.</span> <span class="nav-text">cdq分治的套路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
