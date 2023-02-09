@@ -28,7 +28,7 @@
 <meta property="og:description" content="传送门Word2VecOptimization梯度下降，随机梯度下降。 实质上是无监督学习，每个batch的最小单位可以是一组word2word的映射，输入值是一个中心词，输出值是一个其对应的outside词，要学习是从中心词要其对于outside词的映射，训练结束后只需要过程中的隐藏层信息，即词向量。 More Detials of Word2Vec 一个词要两个向量的原因？ 为了更容易优化，但">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-04T13:25:57.000Z">
-<meta property="article:modified_time" content="2022-09-04T13:29:38.000Z">
+<meta property="article:modified_time" content="2023-02-09T07:05:27.833Z">
 <meta property="article:author" content="Yifan">
 <meta name="twitter:card" content="summary">
 
@@ -298,10 +298,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-09-04 17:25:57 / Modified: 17:29:38" itemprop="dateCreated datePublished" datetime="2022-09-04T17:25:57+04:00">2022-09-04</time>
+              <time title="Created: 2022-09-04 17:25:57" itemprop="dateCreated datePublished" datetime="2022-09-04T17:25:57+04:00">2022-09-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-02-09 11:05:27" itemprop="dateModified" datetime="2023-02-09T11:05:27+04:00">2023-02-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -348,6 +354,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
+<span id="more"></span>
 <h1 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h1><h2 id="Co-occurrence-vectors共现矩阵"><a href="#Co-occurrence-vectors共现矩阵" class="headerlink" title="Co-occurrence vectors共现矩阵"></a>Co-occurrence vectors共现矩阵</h2><p>即将上一章中的无向完全图用矩阵表示写出，问题明显，即过于稀疏，体积过大，鲁棒性差</p>
 <p>Solution： 只储存那些更重要的信息，压缩维度，类似WORD2VEC</p>
 <h2 id="Dimensionality-Reduction-on-X-HW1"><a href="#Dimensionality-Reduction-on-X-HW1" class="headerlink" title="Dimensionality Reduction on X (HW1)"></a>Dimensionality Reduction on X (HW1)</h2><p>对共现矩阵做奇异值分解，再重新组合，形成一个更小的矩阵</p>
@@ -469,7 +476,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

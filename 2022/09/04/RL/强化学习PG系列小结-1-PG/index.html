@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"sanshuiii.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="本文作为李宏毅老师2020年春季强化学习课程的笔记记录，课件，本文默认读者有一定的机器学习和深度学习的背景知识。 概述简单的讲，强化学习主要的工作就是训练一个 agent，从环境 （environment） 中获取信息 （observation），并且做出决策 （action） 来影响环境。最终的目标是得到一个决策序列，使得整个过程得到的收益 （reward） 最大。​目前强化学习方法可以分为 m">
+  <meta name="description" content="本文作为李宏毅老师2020年春季强化学习课程的笔记记录，课件，本文默认读者有一定的机器学习和深度学习的背景知识。 概述简单的讲，强化学习主要的工作就是训练一个 agent，从环境 （environment） 中获取信息 （observation），并且做出决策 （action） 来影响环境。最终的目标是得到一个决策序列，使得整个过程得到的收益 （reward） 最大。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="强化学习PG系列小结-1-PG">
 <meta property="og:url" content="http://sanshuiii.github.io/2022/09/04/RL/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0PG%E7%B3%BB%E5%88%97%E5%B0%8F%E7%BB%93-1-PG/index.html">
 <meta property="og:site_name" content="Sanshuiii">
-<meta property="og:description" content="本文作为李宏毅老师2020年春季强化学习课程的笔记记录，课件，本文默认读者有一定的机器学习和深度学习的背景知识。 概述简单的讲，强化学习主要的工作就是训练一个 agent，从环境 （environment） 中获取信息 （observation），并且做出决策 （action） 来影响环境。最终的目标是得到一个决策序列，使得整个过程得到的收益 （reward） 最大。​目前强化学习方法可以分为 m">
+<meta property="og:description" content="本文作为李宏毅老师2020年春季强化学习课程的笔记记录，课件，本文默认读者有一定的机器学习和深度学习的背景知识。 概述简单的讲，强化学习主要的工作就是训练一个 agent，从环境 （environment） 中获取信息 （observation），并且做出决策 （action） 来影响环境。最终的目标是得到一个决策序列，使得整个过程得到的收益 （reward） 最大。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-04T13:32:01.000Z">
-<meta property="article:modified_time" content="2022-09-04T14:04:02.000Z">
+<meta property="article:modified_time" content="2023-02-09T07:06:18.530Z">
 <meta property="article:author" content="Yifan">
 <meta name="twitter:card" content="summary">
 
@@ -298,10 +298,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-09-04 17:32:01 / Modified: 18:04:02" itemprop="dateCreated datePublished" datetime="2022-09-04T17:32:01+04:00">2022-09-04</time>
+              <time title="Created: 2022-09-04 17:32:01" itemprop="dateCreated datePublished" datetime="2022-09-04T17:32:01+04:00">2022-09-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-02-09 11:06:18" itemprop="dateModified" datetime="2023-02-09T11:06:18+04:00">2023-02-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -331,7 +337,9 @@ mjx-container[display="true"] + br {
 
       
         <p>本文作为李宏毅老师2020年春季强化学习课程的笔记记录，课件，本文默认读者有一定的机器学习和深度学习的背景知识。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>简单的讲，强化学习主要的工作就是训练一个 agent，从环境 （environment） 中获取信息 （observation），并且做出决策 （action） 来影响环境。最终的目标是得到一个决策序列，使得整个过程得到的收益 （reward） 最大。<br>​<br>目前强化学习方法可以分为 model based 和 model free 两种，其区别在于是否对交互环境本身具有先验信息。在这一系列教程中我们主要讨论 model free 方法，即我们认为交互环境是一个黑盒，不考虑其内部结构，只研究环境的输入输出。在 model free 方法中，比较有代表性的有基于值的 value based 方法（Q-learning）和基于策略的 policy based 方法（policy gradient）。其主要区别在于，</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>简单的讲，强化学习主要的工作就是训练一个 agent，从环境 （environment） 中获取信息 （observation），并且做出决策 （action） 来影响环境。最终的目标是得到一个决策序列，使得整个过程得到的收益 （reward） 最大。</p>
+<span id="more"></span>
+<p>​<br>目前强化学习方法可以分为 model based 和 model free 两种，其区别在于是否对交互环境本身具有先验信息。在这一系列教程中我们主要讨论 model free 方法，即我们认为交互环境是一个黑盒，不考虑其内部结构，只研究环境的输入输出。在 model free 方法中，比较有代表性的有基于值的 value based 方法（Q-learning）和基于策略的 policy based 方法（policy gradient）。其主要区别在于，</p>
 <ul>
 <li>value based method 本质是是训练一个 critic，只去判断状态/动作的价值，而不直接做出动作，Q-learning 的各类方法都实现了上述要求。关于 <a href="../强化学习DQN系列小结">Q-learning</a> 的介绍，可以移步笔者的另一篇文章，对主流的 Q-learning 技术进行的介绍。一些其背后原理的推导可以参见笔者的另一篇文章，介绍了 <a href="../BriefIntroduction">MDP，DP，MC，TD</a>等内容。</li>
 <li>policy based method 本质是是训练一个 actor，只负责给出动作，但是不去考虑状态值本身的信息。</li>
@@ -495,7 +503,7 @@ P(\tau|\theta) = p(s_1)\prod_{t=1}^Tp(a_t|s_t,\theta)p(r_t,s_{t+1}|s_t,a_t)</scr
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
